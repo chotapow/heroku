@@ -25,11 +25,12 @@ jobs:
           name: "Create Environment file"
           command: mv .env.testing .env
 
-      - run:
-          name: "Unit Tests"
-          command: ./vendor/bin/phpunit
+      # - run:
+      #     name: "Unit Tests"
+      #     command: ./vendor/bin/phpunit
 
       - run:
+          name: "Run Tests"
           command: |
             mkdir -p ~/phpunit
             ./vendor/bin/phpunit --log-junit ~/phpunit/junit.xml tests
