@@ -25,17 +25,14 @@ jobs:
           name: "Create Environment file"
           command: mv .env.testing .env
 
-      # - run:
-      #     name: "Generate App key"
-      #     command: php artisan key:generate
-
-      # run tests with phpunit or codecept
-      - run: ./vendor/bin/phpunit
+      - run:
+          name: "Unit Tests"
+          command: ./vendor/bin/phpunit
 
       - store_test_results:
-          path: tests/_output
-      - store_artifacts:
-          path: tests/_output
+          path: test-results
+      # - store_artifacts:
+      #     path: tests/_output
   deploy_app:
     executor: heroku/default
     steps:
