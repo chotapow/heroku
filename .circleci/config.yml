@@ -25,9 +25,9 @@ jobs:
           name: "Create Environment file"
           command: mv .env.testing .env
 
-      - run:
-          name: "Generate App key"
-          command: php artisan key:generate
+      # - run:
+      #     name: "Generate App key"
+      #     command: php artisan key:generate
 
       # run tests with phpunit or codecept
       - run: ./vendor/bin/phpunit
