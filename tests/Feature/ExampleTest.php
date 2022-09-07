@@ -7,13 +7,14 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @test
      */
-    public function test_the_application_returns_a_successful_response()
+    public function it_displays_create_view_for_author()
     {
-        $this->assertTrue(true);
+        $response = $this->get(route('authors.create'));
+
+        $response->assertOk()->assertViewIs('authors.create');
     }
 }
