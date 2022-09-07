@@ -29,10 +29,15 @@ jobs:
           name: "Unit Tests"
           command: ./vendor/bin/phpunit
 
+      - run:
+          command: |
+            mkdir -p ~/phpunit
+            phpunit --log-junit ~/phpunit/junit.xml tests
+          when: always
+
       - store_test_results:
-          path: test-results
-      # - store_artifacts:
-      #     path: tests/_output
+          path: ~/phpunit
+
   deploy_app:
     executor: heroku/default
     steps:
