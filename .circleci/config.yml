@@ -22,6 +22,10 @@ jobs:
             - ./vendor
       # run tests with phpunit or codecept
       - run: ./vendor/bin/phpunit
+      - store_test_results:
+          path: tests/_output
+      - store_artifacts:
+          path: tests/_output
   deploy_app:
     executor: heroku/default
     steps:
